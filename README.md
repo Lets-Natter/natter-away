@@ -13,5 +13,5 @@ npm start
 
 ```
 [POST] curl -d '{"natter":"Test natter"}' -H 'Content-Type: application/json' http://127.0.0.1:5000/natters
-[GET] curl -H 'Content-Type: application/json' http://127.0.0.1:5000/natters
+[GET]  curl -H 'Content-Type: application/json' http://127.0.0.1:5000/natters
 ```
