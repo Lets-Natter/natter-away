@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { v4: uuidv4 } = require("uuid");
+const axios = require("axios");
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,7 +18,17 @@ app.post("/natters", async (req, res) => {
 
   natters[id] = { id, natter };
 
+  await axios.post("http://localhost:5005/events", {
+    type: "SomeoneNattered",
+    data: { id, natter },
+  });
+
   res.status(201).send(natters[id]);
+});
+
+app.post("/events", (req, res) => {
+  console.log("Received Event: ", req.body.type);
+  res.send({});
 });
 
 app.listen(5000, () => console.log("Listening on 5000.."));
