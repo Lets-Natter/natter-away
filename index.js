@@ -31,4 +31,4 @@ app.post("/events", (req, res) => {
   res.send({});
 });
 
-app.listen(5000, () => console.log("Listening on 5000.."));
+app.listen(5000, "127.0.0.1", () => console.log("Listening on 5000.."));
